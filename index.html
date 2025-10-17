@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vandson Barbosa | Personal Trainer</title>
+  <meta name="description" content="Consultoria fitness online personalizada por Vandson Barbosa — treinos para emagrecer, ganhar massa e definir." />
+
+  <style>
+    :root{
+      --bg:#070707;
+      --black:#0b0b0b;
+      --gold:#d4af37;
+      --gold-dark:#b58e2f;
+      --muted:#bdbdbd;
+      --card:#121212;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:#fff;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+
+    /* Header / Hero */
+    header{padding:48px 20px 60px; text-align:center; background:linear-gradient(180deg,#070707 0%, #0f0f0f 100%)}
+    .container{max-width:1100px;margin:0 auto}
+    .logo{width:420px;height:auto;margin:0 auto 16px;display:block}
+    h1{margin:6px 0 6px;font-size:34px;color:var(--gold);letter-spacing:1px}
+    h1 span{color:#fff}
+    .subtitle{color:var(--muted);max-width:900px;margin:12px auto 20px;line-height:1.6}
+
+    .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+    .btn{background:var(--gold);color:var(--black);padding:12px 22px;border-radius:999px;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,0.5);border:none;cursor:pointer}
+    .btn:hover{background:var(--gold-dark);transform:translateY(-3px)}
+
+    /* Benefits */
+    .benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+    .benefit{background:linear-gradient(180deg,var(--card),#0f0f0f);padding:18px;border-radius:12px;text-align:center}
+    .benefit .icon{font-size:28px;color:var(--gold);display:block;margin-bottom:8px}
+    .benefit p{color:var(--muted);margin:0}
+
+    /* Sections */
+    section{padding:64px 20px}
+    h2.section-title{color:var(--gold);text-align:center;margin:0 0 28px;font-size:26px}
+
+    .about{display:flex;gap:28px;align-items:center;justify-content:space-between}
+    .about-img{flex:0 0 420px;border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(212,175,55,0.12)}
+    .about-img img{width:100%;display:block}
+    .about-text{flex:1}
+    .about-text p{color:var(--muted);line-height:1.7}
+
+    /* Testimonials */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .testi{background:linear-gradient(180deg,#0f0f0f,#121212);padding:18px;border-radius:12px;border:1px solid rgba(212,175,55,0.06);transition:transform .25s,box-shadow .25s}
+    .testi:hover{transform:translateY(-8px);box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+    .testi .foto{width:64px;height:64px;border-radius:10px;overflow:hidden;flex:0 0 64px}
+    .testi .meta{display:flex;gap:12px;align-items:center}
+    .testi p{color:var(--muted);margin:12px 0 0}
+
+    /* Plans */
+    .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+    .plan{background:linear-gradient(180deg,#0f0f0f,#151515);padding:22px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);position:relative;display:flex;flex-direction:column}
+    .plan.featured{border:2px solid var(--gold);transform:scale(1.03);box-shadow:0 12px 40px rgba(212,175,55,0.06)}
+    .plan .icon{font-size:28px;color:var(--gold);margin-bottom:12px}
+    .plan h3{color:var(--gold);margin:6px 0}
+    .plan .price{font-size:22px;font-weight:800;margin-top:auto;color:#fff}
+    .plan p{color:var(--muted)}
+    .plan .cta{margin-top:16px}
+
+    /* Floating WhatsApp */
+    .wh-fixed{position:fixed;right:20px;bottom:20px;width:62px;height:62px;border-radius:14px;background:#0b0b0b;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,0.6);z-index:9999;cursor:pointer}
+    .wh-fixed .icon{font-size:26px;color:var(--gold)}
+    .wh-fixed::after{content:'';position:absolute;inset:0;border-radius:14px;box-shadow:0 0 0 4px rgba(212,175,55,0.05);opacity:0;transition:opacity .3s}
+    .wh-fixed.pulse::before{content:'';position:absolute;border-radius:14px;inset:-6px;background:radial-gradient(circle at center, rgba(212,175,55,0.12), transparent 40%);animation:pulse 2.6s infinite}
+    @keyframes pulse{0%{transform:scale(.98);opacity:1}70%{transform:scale(1.06);opacity:.3}100%{transform:scale(.98);opacity:1}}
+
+    /* Footer */
+    footer{padding:36px 20px;background:linear-gradient(90deg,#070707,#0b0b0b);text-align:center}
+    .socials{display:flex;gap:12px;justify-content:center;margin:12px 0}
+    .socials a{color:var(--muted);padding:8px;border-radius:8px}
+
+    /* Gold shimmer on name */
+    .shimmer{display:inline-block;background:linear-gradient(90deg, rgba(212,175,55,0.12), rgba(212,175,55,0.9), rgba(212,175,55,0.12));-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 3.6s linear infinite}
+    @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .benefits{grid-template-columns:repeat(2,1fr)}
+      .testimonials{grid-template-columns:1fr}
+      .plans{grid-template-columns:1fr}
+      .about{flex-direction:column}
+      .about-img{width:100%}
+      h1{font-size:28px}
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <!-- logo: replace with your optimized transparent logo file -->
+      <img class="logo" src="./logo.png" alt="Logo Vandson Barbosa" />
+      <h1><span>VANDSON</span> <span class="shimmer">BARBOSA</span></h1>
+      <p class="subtitle">Personal Trainer • Consultoria Fitness — Treinos personalizados, acompanhamento e resultados reais.</p>
+
+      <div class="hero-actions">
+        <a class="btn" href="https://wa.me/5583998151486?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20treino%20com%20Vandson%20Barbosa!" target="_blank" rel="noopener noreferrer">💬 Agende seu treino agora</a>
+        <a class="btn" href="#plans">Ver meus planos</a>
+      </div>
+
+      <div class="benefits" style="margin-top:36px">
+        <div class="benefit"><div class="icon">🏋️‍♂️</div><p>Treinos personalizados para seu objetivo</p></div>
+        <div class="benefit"><div class="icon">📱</div><p>Acompanhamento via WhatsApp</p></div>
+        <div class="benefit"><div class="icon">🎯</div><p>Plano com metas e evolução</p></div>
+        <div class="benefit"><div class="icon">⏱️</div><p>Programas práticos pra sua rotina</p></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- About -->
+    <section id="about">
+      <div class="about">
+        <div class="about-img"><img src="./foto" alt="Vandson Barbosa"></div>
+        <div class="about-text">
+          <h2 class="section-title">Sobre mim</h2>
+          <p>Sou <strong>Vandson Barbosa</strong>, Profissional de educação física, com formação em duas graduações na universidade Unicesumar Serra talhada. Aqui quero trazer para meus alunos as melhores metodologias, planos que cabe no seu bolso e o melhor, treinos personalizados.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <h2 class="section-title">O que dizem meus alunos</h2>
+      <div class="testimonials">
+        <div class="testi">
+          <div class="meta">
+            <div class="foto"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Aluno 1" style="width:100%;height:100%;object-fit:cover"></div>
+            <div>
+              <strong>Mariana R.</strong>
+              <div style="color:var(--muted);font-size:13px">Perdeu 6kg em 2 meses</div>
+            </div>
+          </div>
+          <p>"Os treinos do Vandson foram decisivos pra mim. Sempre adaptados à minha rotina e com suporte constante — recomendo 100%."</p>
+        </div>
+
+        <div class="testi">
+          <div class="meta">
+            <div class="foto"><img src="c:\Users\Ruth\Downloads\retrato-de-um-homem-bonito.jpg" alt="Aluno 2" style="width:100%;height:100%;object-fit:cover"></div>
+            <div>
+              <strong>Carlos S.</strong>
+              <div style="color:var(--muted);font-size:13px">Ganhou massa e força</div>
+            </div>
+          </div>
+          <p>"Treinos objetivos e progressivos. A atenção e o ajuste constantes me ajudaram a superar platôs e ganhar força."</p>
+        </div>
+
+        <div class="testi">
+          <div class="meta">
+            <div class="foto"><img src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Aluno 3" style="width:100%;height:100%;object-fit:cover"></div>
+            <div>
+              <strong>Ana P.</strong>
+              <div style="color:var(--muted);font-size:13px">Rotina consistente</div>
+            </div>
+          </div>
+          <p>"Agora consigo treinar mesmo com pouco tempo. O plano foi adaptado perfeitamente às minhas necessidades."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plans -->
+    <section id="plans">
+      <h2 class="section-title">Meus Planos</h2>
+      <div class="plans">
+        <div class="plan">
+          <div class="icon">💪</div>
+          <h3>BÁSICO</h3>
+          <p>Acompanhamento 1x por mês</p>
+          <div class="price">R$ 49,99</div>
+          <div class="cta"><a class="btn" href="https://wa.me/5583998151486?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20o%20Plano%20B%C3%A1sico%20com%20Vandson%20Barbosa!" target="_blank">Agendar agora</a></div>
+        </div>
+
+        <div class="plan">
+          <div class="icon">📋</div>
+          <h3>INTERMEDIÁRIO</h3>
+          <p>Acompanhamento + Prescrição</p>
+          <div class="price">R$ 89,99</div>
+          <div class="cta"><a class="btn" href="https://wa.me/5583998151486?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20o%20Plano%20Intermedi%C3%A1rio%20com%20Vandson%20Barbosa!" target="_blank">Agendar agora</a></div>
+        </div>
+
+        <div class="plan featured">
+          <div class="icon">🥇</div>
+          <h3>COMPLETO</h3>
+          <p>Avaliação + Acompanhamento</p>
+          <div class="price">R$ 139,99</div>
+          <div class="cta"><a class="btn" href="https://wa.me/5583998151486?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20o%20Plano%20Completo%20com%20Vandson%20Barbosa!" target="_blank">Agendar agora</a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating WhatsApp button (visible only on homepage) -->
+  <a class="wh-fixed pulse" href="https://wa.me/5583998151486?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20treino%20com%20Vandson%20Barbosa!" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <span class="icon">💬</span>
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div style="font-size:18px; margin-bottom:6px"><span class="shimmer">Vandson Barbosa</span> • Personal Trainer</div>
+      <div class="socials">
+        <!-- replace # with your profiles -->
+        <a href="https://www.instagram.com/_vandsonbarbosa?igsh=ZnNvdmFlMG93YXlt" aria-label="Instagram">📸 Instagram</a>
+        <a href="https://wa.me/5583998151486" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+        <a href="Email:vandsonbarbossajurub@gmail.com" aria-label="Email">✉️ contato@vandsonbarbosa.com</a>
+      </div>
+      <div style="color:var(--muted);font-size:13px">© 2025 Vandson Barbosa. Todos os direitos reservados.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Optional: add small entrance animations
+    document.addEventListener('DOMContentLoaded', function(){
+      // simple fade-in for sections
+      document.querySelectorAll('section').forEach((s,i)=>{
+        s.style.opacity=0; s.style.transform='translateY(8px)';
+        setTimeout(()=>{s.style.transition='all .6s ease'; s.style.opacity=1; s.style.transform='translateY(0)';}, 120*i)
+      })
+
+      // small highlight on featured plan after load
+      setTimeout(()=>{
+        const f = document.querySelector('.plan.featured'); if(f) f.style.boxShadow='0 18px 50px rgba(212,175,55,0.08)';
+      },700)
+    })
+  </script>
+
+</body>
+</html>
+
